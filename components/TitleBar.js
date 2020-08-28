@@ -1,13 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import PropTypes from 'prop-types'
 
-const TitleBar = () => (
+const TitleBar = ({ title }) => (
   <View style={styles.container}>
     <TouchableOpacity style={styles.leftIcon}>
       <FontAwesome5 name='arrow-left' size={20} color='#30c2d0' />
     </TouchableOpacity>
-    <Text style={styles.title}>Book a Doctor</Text>
+    <Text style={styles.title}>{title}</Text>
     <FontAwesome5
       name='stethoscope'
       size={32}
@@ -40,3 +41,11 @@ const styles = StyleSheet.create({
     right: 15,
   },
 })
+
+TitleBar.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+
+TitleBar.defaultProps = {
+  title: '',
+}

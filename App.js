@@ -3,12 +3,14 @@ import React from 'react'
 import { StyleSheet, SafeAreaView, Platform } from 'react-native'
 import Constants from 'expo-constants'
 import TitleBar from './components/TitleBar'
+import SegmentedControls from './components/SegmentedControls'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style='auto' />
-      <TitleBar />
+      <TitleBar title={'Book a Doctor'} />
+      <SegmentedControls />
     </SafeAreaView>
   )
 }
@@ -20,8 +22,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fffdff',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
     marginTop:
       Platform.OS === 'android' || platformVersion < 11
         ? Constants.statusBarHeight + 20
