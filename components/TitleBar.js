@@ -3,16 +3,18 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
 
+const iconColor = '#30c2d0'
+
 const TitleBar = ({ title }) => (
   <View style={styles.container}>
     <TouchableOpacity style={styles.leftIcon}>
-      <FontAwesome5 name='arrow-left' size={20} color='#30c2d0' />
+      <FontAwesome5 name='arrow-left' size={20} color={iconColor} />
     </TouchableOpacity>
     <Text style={styles.title}>{title}</Text>
     <FontAwesome5
       name='stethoscope'
       size={32}
-      color='#30c2d0'
+      color={iconColor}
       style={styles.rightIcon}
     />
   </View>
