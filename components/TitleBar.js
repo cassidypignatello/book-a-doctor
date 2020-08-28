@@ -1,10 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from 'react-native'
-import Constants from 'expo-constants'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 const TitleBar = () => (
-  <SafeAreaView style={styles.container}>
+  <View style={styles.container}>
     <TouchableOpacity style={styles.leftIcon}>
       <FontAwesome5 name='arrow-left' size={20} color='#30c2d0' />
     </TouchableOpacity>
@@ -15,7 +14,7 @@ const TitleBar = () => (
       color='#30c2d0'
       style={styles.rightIcon}
     />
-  </SafeAreaView>
+  </View>
 )
 
 export default TitleBar
@@ -26,7 +25,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: Constants.statusBarHeight + 20,
   },
   leftIcon: {
     position: 'relative',

@@ -1,16 +1,20 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, SafeAreaView, Platform } from 'react-native'
+import Constants from 'expo-constants'
 import TitleBar from './components/TitleBar'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style='auto' />
       <TitleBar />
-    </View>
+    </SafeAreaView>
   )
 }
+
+const platformVersion =
+  Platform.OS === 'ios' ? parseInt(Platform.Version, 10) : Platform.Version
 
 const styles = StyleSheet.create({
   container: {
@@ -18,5 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fffdff',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    marginTop:
+      Platform.OS === 'android' || platformVersion < 11
+        ? Constants.statusBarHeight + 20
+        : 0,
   },
 })
