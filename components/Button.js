@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#fffdff',
     paddingVertical: 12,
-    paddingHorizontal: 30,
+    paddingHorizontal: 10,
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
