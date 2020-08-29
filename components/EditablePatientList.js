@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import SectionTitle from './SectionTitle'
+import PatientButtonsList from './PatientButtonsList'
 
 const EditablePatientList = () => (
   <View style={styles.container}>
     <SectionTitle title={'Choose Patient:'} />
+    <PatientButtonsList />
   </View>
 )
 
