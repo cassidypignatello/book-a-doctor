@@ -41,7 +41,7 @@ const SegmentedControls = ({
   useEffect(() => {
     Animated.spring(tabTranslate, {
       toValue: currentIndex * translateValue,
-      stiffness: 200,
+      stiffness: 180,
       damping: 25,
       useNativeDriver: true,
     }).start()
@@ -99,9 +99,7 @@ const SegmentedControls = ({
 
 const styles = StyleSheet.create({
   wrapper: {
-    display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
     borderRadius: 16,
     width,
     marginVertical: 20,

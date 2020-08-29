@@ -20,8 +20,6 @@ const TitleBar = ({ title }) => (
   </View>
 )
 
-export default TitleBar
-
 const styles = StyleSheet.create({
   container: {
     width: '100%',
@@ -51,3 +49,5 @@ TitleBar.propTypes = {
 TitleBar.defaultProps = {
   title: '',
 }
+
+export default TitleBar

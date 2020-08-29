@@ -4,6 +4,7 @@ import { StyleSheet, SafeAreaView, Platform } from 'react-native'
 import Constants from 'expo-constants'
 import TitleBar from './components/TitleBar'
 import SegmentedControls from './components/SegmentedControls'
+import EditablePatientList from './components/EditablePatientList'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -24,6 +25,7 @@ export default function App() {
         textColor='#a0a7ae'
         paddingVertical={10}
       />
+      <EditablePatientList />
     </SafeAreaView>
   )
 }
