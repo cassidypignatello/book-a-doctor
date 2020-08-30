@@ -33,6 +33,18 @@ export default function App() {
     },
   ])
 
+  const [symptoms, setSymptoms] = useState([
+    'Symptom 1',
+    'Symptom 2',
+    'Symptom 3',
+    'Symptom 4',
+    'Symptom 5',
+    'Symptom 6',
+    'Symptom 7',
+  ])
+  const onSymptomSelection = (index) => {
+    setSymptoms(symptoms.filter((symptom, i) => i !== index))
+  }
   const handleTabsChange = (index) => setTabIndex(index)
   const onAddPatient = (name, id) => setPatients([{ id, name }, ...patients])
 
@@ -52,7 +64,10 @@ export default function App() {
       />
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
       <ReasonForm />
-      <SelectableSymptomList />
+      <SelectableSymptomList
+        symptoms={symptoms}
+        onButtonPress={onSymptomSelection}
+      />
     </SafeAreaView>
   )
 }
