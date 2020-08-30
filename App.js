@@ -73,9 +73,9 @@ export default function App() {
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
       <ReasonForm
         selectedSymptoms={selectedSymptoms}
-        onDeselectSymptom={onDeselectSymptom}
+        deselectSymptom={onDeselectSymptom}
         symptoms={symptoms}
-        onSelectSymptom={onSelectSymptom}
+        selectSymptom={onSelectSymptom}
         addSymptom={onAddSymptom}
       />
       <SelectedSymptoms

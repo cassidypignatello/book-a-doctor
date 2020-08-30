@@ -9,9 +9,9 @@ import SelectableSymptomList from './SelectableSymptomList'
 
 const ReasonForm = ({
   selectedSymptoms,
-  onDeselectSymptom,
+  deselectSymptom,
   symptoms,
-  onSelectSymptom,
+  selectSymptom,
   addSymptom,
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -53,11 +53,11 @@ const ReasonForm = ({
         />
         <SelectedSymptoms
           symptoms={selectedSymptoms}
-          onButtonPress={onDeselectSymptom}
+          onButtonPress={deselectSymptom}
         />
         <SelectableSymptomList
           symptoms={symptoms}
-          onButtonPress={onSelectSymptom}
+          onButtonPress={selectSymptom}
         />
       </CustomModal>
     </>
@@ -85,9 +85,9 @@ const styles = StyleSheet.create({
 
 ReasonForm.propTypes = {
   selectedSymptoms: PropTypes.array.isRequired,
-  onDeselectSymptom: PropTypes.func.isRequired,
+  deselectSymptom: PropTypes.func.isRequired,
   symptoms: PropTypes.array.isRequired,
-  onSelectSymptom: PropTypes.func.isRequired,
+  selectSymptom: PropTypes.func.isRequired,
   addSymptom: PropTypes.func.isRequired,
 }
 
