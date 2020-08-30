@@ -55,7 +55,8 @@ export default function App() {
   }
   const handleTabsChange = (index) => setTabIndex(index)
   const onAddPatient = (name, id) => setPatients([{ id, name }, ...patients])
-  const onAddSymptom = (symptom) => setSymptoms([symptom, ...symptoms])
+  const onAddSymptom = (symptom) =>
+    setSelectedSymptoms([symptom, ...selectedSymptoms])
 
   return (
     <SafeAreaView style={styles.container}>

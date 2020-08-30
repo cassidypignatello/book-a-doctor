@@ -23,13 +23,13 @@ const ReasonForm = ({
     if (!text) return
     addSymptom(text)
     setText('')
-    callModal()
   }
   const onButtonPress = () => {
     if (!text) {
       callModal()
     }
     onSubmitEditing()
+    callModal()
   }
   return (
     <>
