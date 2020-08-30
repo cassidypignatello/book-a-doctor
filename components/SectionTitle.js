@@ -11,6 +11,7 @@ const SectionTitle = ({ title }) => (
 const styles = StyleSheet.create({
   title: {
     fontSize: 16,
+    fontWeight: 'bold',
   },
 })
 
