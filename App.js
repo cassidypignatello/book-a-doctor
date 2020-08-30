@@ -6,6 +6,7 @@ import TitleBar from './components/TitleBar'
 import SegmentedControls from './components/SegmentedControls'
 import EditablePatientList from './components/EditablePatientList'
 import ReasonForm from './components/ReasonForm'
+import SelectableSymptomList from './components/SelectableSymptomList'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -51,6 +52,7 @@ export default function App() {
       />
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
       <ReasonForm />
+      <SelectableSymptomList />
     </SafeAreaView>
   )
 }
