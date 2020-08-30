@@ -44,11 +44,11 @@ export default function App() {
     'Symptom 7',
   ])
   const [selectedSymptoms, setSelectedSymptoms] = useState([])
-  const onSymptomSelection = (item, index) => {
+  const onSelectSymptom = (item, index) => {
     setSelectedSymptoms([item, ...selectedSymptoms])
     setSymptoms(symptoms.filter((symptom, i) => i !== index))
   }
-  const onSelectedSymptomPress = (item, index) => {
+  const onDeselectSymptom = (item, index) => {
     setSymptoms([item, ...symptoms])
     setSelectedSymptoms(selectedSymptoms.filter((symptom, i) => i !== index))
   }
@@ -73,11 +73,11 @@ export default function App() {
       <ReasonForm />
       <SelectedSymptoms
         symptoms={selectedSymptoms}
-        onButtonPress={onSelectedSymptomPress}
+        onButtonPress={onDeselectSymptom}
       />
       <SelectableSymptomList
         symptoms={symptoms}
-        onButtonPress={onSymptomSelection}
+        onButtonPress={onSelectSymptom}
       />
     </SafeAreaView>
   )
