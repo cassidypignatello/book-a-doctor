@@ -7,6 +7,7 @@ import SegmentedControls from './components/SegmentedControls'
 import EditablePatientList from './components/EditablePatientList'
 import ReasonForm from './components/ReasonForm'
 import SelectableSymptomList from './components/SelectableSymptomList'
+import SelectedSymptoms from './components/SelectedSymptoms'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -42,7 +43,9 @@ export default function App() {
     'Symptom 6',
     'Symptom 7',
   ])
-  const onSymptomSelection = (index) => {
+  const [selectedSymptoms, setSelectedSymptoms] = useState([])
+  const onSymptomSelection = (item, index) => {
+    setSelectedSymptoms([item, ...selectedSymptoms])
     setSymptoms(symptoms.filter((symptom, i) => i !== index))
   }
   const handleTabsChange = (index) => setTabIndex(index)
@@ -64,6 +67,7 @@ export default function App() {
       />
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
       <ReasonForm />
+      <SelectedSymptoms symptoms={selectedSymptoms} />
       <SelectableSymptomList
         symptoms={symptoms}
         onButtonPress={onSymptomSelection}

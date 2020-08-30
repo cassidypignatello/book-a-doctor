@@ -4,20 +4,27 @@ import PropTypes from 'prop-types'
 import { MaterialIcons } from '@expo/vector-icons'
 import Button from './Button'
 
-const Symptom = ({ onPress, children }) => {
+const Symptom = ({
+  onPress,
+  children,
+  style,
+  textStyle,
+  iconName,
+  iconColor,
+}) => {
   return (
     <View style={styles.container}>
       <Button
         onPress={onPress}
-        style={styles.button}
-        textStyle={styles.buttonText}
+        style={{ ...styles.button, ...style }}
+        textStyle={{ ...styles.buttonText, ...textStyle }}
       >
         {children}
       </Button>
       <MaterialIcons
-        name='add'
+        name={iconName}
         size={24}
-        color={'#8ac6c9'}
+        color={iconColor}
         style={styles.icon}
       />
     </View>
@@ -48,6 +55,10 @@ const styles = StyleSheet.create({
 Symptom.propTypes = {
   onPress: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
+  style: PropTypes.object,
+  textStyle: PropTypes.object,
+  iconName: PropTypes.string.isRequired,
+  iconColor: PropTypes.string.isRequired,
 }
 
 export default Symptom

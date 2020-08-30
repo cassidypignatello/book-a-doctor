@@ -9,7 +9,12 @@ const SelectableSymptomList = ({ symptoms, onButtonPress }) => (
     <SectionTitle title='Choose your symptoms and reasons:' />
     <View style={styles.buttonsContainer}>
       {symptoms.map((item, index) => (
-        <Symptom key={index} onPress={() => onButtonPress(index)}>
+        <Symptom
+          key={index}
+          onPress={() => onButtonPress(item, index)}
+          iconName='add'
+          iconColor='#8ac6c9'
+        >
           {item}
         </Symptom>
       ))}
