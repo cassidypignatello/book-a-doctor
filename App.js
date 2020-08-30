@@ -8,8 +8,6 @@ import EditablePatientList from './components/EditablePatientList'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
-  const handleTabsChange = (index) => setTabIndex(index)
-
   const [patients, setPatients] = useState([
     'Yarik Nikolenko',
     'Cassidy Pignatello',
@@ -18,6 +16,7 @@ export default function App() {
     'Israel Adesanya',
   ])
 
+  const handleTabsChange = (index) => setTabIndex(index)
   const onAddPatient = (name) => setPatients([name, ...patients])
 
   return (
