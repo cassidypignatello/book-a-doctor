@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
+import PropTypes from 'prop-types'
 import { MaterialIcons } from '@expo/vector-icons'
 import Input from './Input'
 import CustomModal from './CustomModal'
@@ -36,10 +37,10 @@ const ReasonForm = ({
         subtitle='Please specify your symptoms:'
       >
         <Input
-          // text={text}
+          text={text}
           placeholder='e.g. Cough'
-          // onChangeText={onChangeText}
-          // onSubmitEditing={onSubmitEditing}
+          onChangeText={onChangeText}
+          onSubmitEditing={onSubmitEditing}
         />
         <SelectedSymptoms
           symptoms={selectedSymptoms}
@@ -72,5 +73,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 })
+
+ReasonForm.propTypes = {
+  selectedSymptoms: PropTypes.array.isRequired,
+  onDeselectSymptom: PropTypes.func.isRequired,
+  symptoms: PropTypes.array.isRequired,
+  onSelectSymptom: PropTypes.func.isRequired,
+}
 
 export default ReasonForm
