@@ -66,13 +66,15 @@ const ReasonForm = ({
           symptoms={symptoms}
           onButtonPress={selectSymptom}
         />
-        <Button
-          style={styles.button}
-          textStyle={styles.buttonText}
-          onPress={onButtonPress}
-        >
-          Done
-        </Button>
+        <View style={styles.bottomButtonContainer}>
+          <Button
+            style={styles.button}
+            textStyle={styles.buttonText}
+            onPress={onButtonPress}
+          >
+            Done
+          </Button>
+        </View>
       </CustomModal>
     </>
   )
@@ -94,6 +96,11 @@ const styles = StyleSheet.create({
   input: {
     marginTop: '8%',
     textAlign: 'center',
+  },
+  bottomButtonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 36,
   },
   button: {
     width: '95%',

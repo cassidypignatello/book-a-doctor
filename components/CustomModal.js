@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
   },
   modalContentContainer: {
+    flex: 1,
     marginTop: '5%',
     marginLeft: '5%',
   },
