@@ -12,7 +12,7 @@ const SelectedSymptoms = ({ symptoms, onButtonPress }) =>
         {symptoms.map((item, index) => (
           <Symptom
             key={index}
-            onPress={() => onButtonPress(index)}
+            onPress={() => onButtonPress(item, index)}
             iconName='check'
             iconColor='#fffdff'
             style={styles.button}
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
 SelectedSymptoms.propTypes = {
   symptoms: PropTypes.array.isRequired,
-  // onButtonPress: PropTypes.func.isRequired,
+  onButtonPress: PropTypes.func.isRequired,
 }
 
 export default SelectedSymptoms

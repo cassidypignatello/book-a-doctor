@@ -48,6 +48,10 @@ export default function App() {
     setSelectedSymptoms([item, ...selectedSymptoms])
     setSymptoms(symptoms.filter((symptom, i) => i !== index))
   }
+  const onSelectedSymptomPress = (item, index) => {
+    setSymptoms([item, ...symptoms])
+    setSelectedSymptoms(selectedSymptoms.filter((symptom, i) => i !== index))
+  }
   const handleTabsChange = (index) => setTabIndex(index)
   const onAddPatient = (name, id) => setPatients([{ id, name }, ...patients])
 
@@ -67,7 +71,10 @@ export default function App() {
       />
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
       <ReasonForm />
-      <SelectedSymptoms symptoms={selectedSymptoms} />
+      <SelectedSymptoms
+        symptoms={selectedSymptoms}
+        onButtonPress={onSelectedSymptomPress}
+      />
       <SelectableSymptomList
         symptoms={symptoms}
         onButtonPress={onSymptomSelection}
