@@ -17,7 +17,7 @@ const PatientButtonsList = ({ patients, addPatient }) => {
     if (!text) return
     addPatient(text, id)
     setText('')
-    setModalVisible(!modalVisible)
+    callModal()
   }
   const renderItem = ({ item }) => {
     const borderColor = item.id === selectedId ? '#8ac6c9' : 'transparent'

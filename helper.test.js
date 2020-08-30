@@ -1,4 +1,4 @@
-import { onAddPatient, onSelectSymptom } from './utils/helper.js'
+import { onAddPatient, onSelectSymptom, onAddSymptom } from './utils/helper.js'
 
 describe('Add Patient', () => {
   it('should add a patient', () => {
@@ -40,5 +40,12 @@ describe('Symptom Selection', () => {
     const expected = [symptom, ...selectedSymptoms]
     const result = onSelectSymptom(symptom)
     expect(result).toEqual(expected)
-  })
+  }),
+    it('should add a symptom', () => {
+      const symptoms = ['Fever', 'Nausea']
+      const newSymptom = 'Dizziness'
+      const expected = [newSymptom, ...symptoms]
+      const result = onAddSymptom(newSymptom)
+      expect(result).toEqual(expected)
+    })
 })

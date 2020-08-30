@@ -21,17 +21,10 @@ const patients = [
   },
 ]
 
-const symptoms = [
-  'Symptom 1',
-  'Symptom 2',
-  'Symptom 3',
-  'Symptom 4',
-  'Symptom 5',
-  'Symptom 6',
-  'Symptom 7',
-]
+const symptoms = ['Fever', 'Nausea']
 
 const selectedSymptoms = []
 
 export const onAddPatient = (name, id) => [{ id, name }, ...patients]
 export const onSelectSymptom = (item, index) => [item, ...selectedSymptoms]
+export const onAddSymptom = (symptom) => [symptom, ...symptoms]

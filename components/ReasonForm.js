@@ -15,6 +15,14 @@ const ReasonForm = ({
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const callModal = () => setModalVisible(!modalVisible)
+  const [text, setText] = useState('')
+  const onChangeText = (text) => setText(text)
+  const onSubmitEditing = () => {
+    if (!text) return
+    // addPatient(text, id)
+    setText('')
+    callModal()
+  }
   return (
     <>
       <View style={styles.container}>
