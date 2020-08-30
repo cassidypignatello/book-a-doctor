@@ -6,6 +6,7 @@ import Input from './Input'
 import CustomModal from './CustomModal'
 import SelectedSymptoms from './SelectedSymptoms'
 import SelectableSymptomList from './SelectableSymptomList'
+import Button from './Button'
 
 const ReasonForm = ({
   selectedSymptoms,
@@ -15,14 +16,20 @@ const ReasonForm = ({
   addSymptom,
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
-  const callModal = () => setModalVisible(!modalVisible)
   const [text, setText] = useState('')
+  const callModal = () => setModalVisible(!modalVisible)
   const onChangeText = (text) => setText(text)
   const onSubmitEditing = () => {
     if (!text) return
     addSymptom(text)
     setText('')
     callModal()
+  }
+  const onButtonPress = () => {
+    if (!text) {
+      callModal()
+    }
+    onSubmitEditing()
   }
   return (
     <>
@@ -59,6 +66,13 @@ const ReasonForm = ({
           symptoms={symptoms}
           onButtonPress={selectSymptom}
         />
+        <Button
+          style={styles.button}
+          textStyle={styles.buttonText}
+          onPress={onButtonPress}
+        >
+          Done
+        </Button>
       </CustomModal>
     </>
   )
@@ -80,6 +94,16 @@ const styles = StyleSheet.create({
   input: {
     marginTop: '8%',
     textAlign: 'center',
+  },
+  button: {
+    width: '95%',
+    marginTop: '5%',
+    paddingVertical: 20,
+  },
+  buttonText: {
+    color: '#8ac6c9',
+    textAlign: 'center',
+    fontSize: 20,
   },
 })
 
