@@ -10,6 +10,7 @@ const PatientButtonsList = ({ patients, addPatient }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [text, setText] = useState('')
   const [selectedId, setSelectedId] = useState(null)
+  const callModal = () => setModalVisible(!modalVisible)
   const onChangeText = (text) => setText(text)
   const onSubmitEditing = () => {
     const id = Math.random().toString()
@@ -44,10 +45,7 @@ const PatientButtonsList = ({ patients, addPatient }) => {
             color={'#ccd4dd'}
             style={styles.icon}
           />
-          <Button
-            onPress={() => setModalVisible(!modalVisible)}
-            style={styles.addButton}
-          >
+          <Button onPress={callModal} style={styles.addButton}>
             Add
           </Button>
         </View>
@@ -63,10 +61,10 @@ const PatientButtonsList = ({ patients, addPatient }) => {
       </View>
       <CustomModal
         modalVisible={modalVisible}
-        onPress={() => setModalVisible(!modalVisible)}
+        onPress={callModal}
+        title='Add Patient'
+        subtitle='Patient Name:'
       >
-        <Text style={styles.contentTitle}>Add Patient</Text>
-        <Text style={styles.contentSubTitle}>Patient Name:</Text>
         <Input
           text={text}
           placeholder='Enter name here'
@@ -108,13 +106,6 @@ const styles = StyleSheet.create({
   },
   divider: {
     width: '2%',
-  },
-  contentTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  contentSubTitle: {
-    fontSize: 14,
   },
 })
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Modal, TouchableOpacity, View, StyleSheet } from 'react-native'
+import { Modal, TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 import PropTypes from 'prop-types'
 
-const CustomModal = ({ modalVisible, children, onPress }) => {
+const CustomModal = ({ modalVisible, children, onPress, title, subtitle }) => {
   return (
     <Modal animationType='slide' transparent={true} visible={modalVisible}>
       <TouchableOpacity
@@ -11,7 +11,11 @@ const CustomModal = ({ modalVisible, children, onPress }) => {
         onPress={onPress}
       >
         <View style={styles.modalContainer}>
-          <View style={styles.modalContentContainer}>{children}</View>
+          <View style={styles.modalContentContainer}>
+            <Text style={styles.contentTitle}>{title}</Text>
+            <Text style={styles.contentSubTitle}>{subtitle}</Text>
+            {children}
+          </View>
         </View>
       </TouchableOpacity>
     </Modal>
@@ -34,12 +38,21 @@ const styles = StyleSheet.create({
     marginTop: '5%',
     marginLeft: '5%',
   },
+  contentTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  contentSubTitle: {
+    fontSize: 14,
+  },
 })
 
 CustomModal.propTypes = {
   modalVisible: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onPress: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
 }
 
 export default CustomModal

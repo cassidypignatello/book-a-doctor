@@ -1,19 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import Input from './Input'
+import CustomModal from './CustomModal'
+import SelectedSymptoms from './SelectedSymptoms'
+import SelectableSymptomList from './SelectableSymptomList'
 
-const ReasonForm = () => {
+const ReasonForm = ({
+  selectedSymptoms,
+  onDeselectSymptom,
+  symptoms,
+  onSelectSymptom,
+}) => {
+  const [modalVisible, setModalVisible] = useState(false)
+  const callModal = () => setModalVisible(!modalVisible)
   return (
-    <View style={styles.container}>
-      <MaterialIcons
-        name='search'
-        size={32}
-        color='#8ac6c9'
-        style={styles.icon}
-      />
-      <Input style={styles.input} placeholder='Add reasons' />
-    </View>
+    <>
+      <View style={styles.container}>
+        <MaterialIcons
+          name='search'
+          size={32}
+          color='#8ac6c9'
+          style={styles.icon}
+        />
+        <Input
+          style={styles.input}
+          placeholder='Add reasons'
+          onTouchStart={callModal}
+        />
+      </View>
+      <CustomModal
+        modalVisible={modalVisible}
+        onPress={callModal}
+        title='Symptoms & Conditions'
+        subtitle='Please specify your symptoms:'
+      >
+        <Input
+          // text={text}
+          placeholder='e.g. Cough'
+          // onChangeText={onChangeText}
+          // onSubmitEditing={onSubmitEditing}
+        />
+        <SelectedSymptoms
+          symptoms={selectedSymptoms}
+          onButtonPress={onDeselectSymptom}
+        />
+        <SelectableSymptomList
+          symptoms={symptoms}
+          onButtonPress={onSelectSymptom}
+        />
+      </CustomModal>
+    </>
   )
 }
 
