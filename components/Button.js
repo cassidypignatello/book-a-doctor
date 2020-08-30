@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
 
 Button.propTypes = {
   onPress: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.object,
+  ]),
   textStyle: PropTypes.object,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Button

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 })
 
 EditablePatientList.propTypes = {
-  patients: PropTypes.arrayOf(PropTypes.string).isRequired,
+  patients: PropTypes.arrayOf(PropTypes.object).isRequired,
   addPatient: PropTypes.func.isRequired,
 }
 

@@ -3,17 +3,32 @@ import { onAddPatient } from './utils/helper.js'
 describe('Add Patient', () => {
   it('should add a patient', () => {
     const patients = [
-      'Yarik Nikolenko',
-      'Cassidy Pignatello',
-      'Zefanya Prabowo',
-      'Conor McGregor',
-      'Israel Adesanya',
+      {
+        id: '0',
+        name: 'Yarik Nikolenko',
+      },
+      {
+        id: '1',
+        name: 'Cassidy Pignatello',
+      },
+      {
+        id: '2',
+        name: 'Zefanya Prabowo',
+      },
+      {
+        id: '3',
+        name: 'Conor McGregor',
+      },
+      {
+        id: '4',
+        name: 'Israel Adesanya',
+      },
     ]
 
-    const name = 'Bruce Lee'
-    const expected = [name, ...patients]
+    const patient = { id: '5', name: 'Bruce Lee' }
+    const expected = [{ ...patient }, ...patients]
 
-    const result = onAddPatient(name)
+    const result = onAddPatient(patient.name, patient.id)
     expect(result).toEqual(expected)
   })
 })

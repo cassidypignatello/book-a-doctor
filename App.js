@@ -9,20 +9,35 @@ import EditablePatientList from './components/EditablePatientList'
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
   const [patients, setPatients] = useState([
-    'Yarik Nikolenko',
-    'Cassidy Pignatello',
-    'Zefanya Prabowo',
-    'Conor McGregor',
-    'Israel Adesanya',
+    {
+      id: '0',
+      name: 'Yarik Nikolenko',
+    },
+    {
+      id: '1',
+      name: 'Cassidy Pignatello',
+    },
+    {
+      id: '2',
+      name: 'Zefanya Prabowo',
+    },
+    {
+      id: '3',
+      name: 'Conor McGregor',
+    },
+    {
+      id: '4',
+      name: 'Israel Adesanya',
+    },
   ])
 
   const handleTabsChange = (index) => setTabIndex(index)
-  const onAddPatient = (name) => setPatients([name, ...patients])
+  const onAddPatient = (name, id) => setPatients([{ id, name }, ...patients])
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style='auto' />
-      <TitleBar title={'Book a Doctor'} />
+      <TitleBar title='Book a Doctor' />
       <SegmentedControls
         tabs={['Doctor', 'Video Consult']}
         currentIndex={tabIndex}

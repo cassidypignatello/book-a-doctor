@@ -15,17 +15,31 @@ import Input from './Input'
 const PatientButtonsList = ({ patients, addPatient }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [text, setText] = useState('')
+  const [selectedId, setSelectedId] = useState(null)
   const onChangeText = (text) => setText(text)
   const onSubmitEditing = () => {
+    const id = Math.random().toString()
     if (!text) return
-    addPatient(text)
+    addPatient(text, id)
     setText('')
     setModalVisible(!modalVisible)
   }
-  const renderItem = ({ item }) => (
-    <Button style={styles.patientButton}>{item}</Button>
-  )
-
+  const renderItem = ({ item }) => {
+    const borderColor = item.id === selectedId ? '#8ac6c9' : 'transparent'
+    return (
+      <Button
+        style={{
+          marginVertical: 5,
+          marginHorizontal: 10,
+          borderWidth: 1,
+          borderColor,
+        }}
+        onPress={() => setSelectedId(item.id)}
+      >
+        {item.name}
+      </Button>
+    )
+  }
   return (
     <>
       <View style={styles.container}>
@@ -48,8 +62,9 @@ const PatientButtonsList = ({ patients, addPatient }) => {
           horizontal
           data={patients}
           renderItem={renderItem}
-          keyExtractor={(item, key) => `${item}-${key}`}
+          keyExtractor={(item) => item.id}
           showsHorizontalScrollIndicator={false}
+          extraData={selectedId}
         />
       </View>
       <Modal animationType='slide' transparent={true} visible={modalVisible}>
@@ -90,10 +105,6 @@ const PatientButtonsList = ({ patients, addPatient }) => {
 }
 
 const styles = StyleSheet.create({
-  patientButton: {
-    marginVertical: 5,
-    marginHorizontal: 10,
-  },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -127,7 +138,7 @@ const styles = StyleSheet.create({
 })
 
 PatientButtonsList.propTypes = {
-  patients: PropTypes.arrayOf(PropTypes.string).isRequired,
+  patients: PropTypes.arrayOf(PropTypes.object).isRequired,
   addPatient: PropTypes.func.isRequired,
 }
 
