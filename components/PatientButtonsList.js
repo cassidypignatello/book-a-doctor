@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
-import {
-  FlatList,
-  StyleSheet,
-  View,
-  Modal,
-  Text,
-  TouchableOpacity,
-} from 'react-native'
+import { FlatList, StyleSheet, View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { MaterialIcons } from '@expo/vector-icons'
 import Button from './Button'
 import Input from './Input'
+import CustomModal from './CustomModal'
 
 const PatientButtonsList = ({ patients, addPatient }) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -67,39 +61,19 @@ const PatientButtonsList = ({ patients, addPatient }) => {
           extraData={selectedId}
         />
       </View>
-      <Modal animationType='slide' transparent={true} visible={modalVisible}>
-        <TouchableOpacity
-          activeOpacity={1}
-          style={{
-            flex: 1,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            justifyContent: 'flex-end',
-          }}
-          onPress={() => setModalVisible(!modalVisible)}
-        >
-          <View
-            style={{
-              flex: 0.5,
-              backgroundColor: 'white',
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-            }}
-          >
-            <View style={{ marginTop: '5%', marginLeft: '5%' }}>
-              <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
-                Add Patient
-              </Text>
-              <Text style={{ fontSize: 14 }}>Patient Name:</Text>
-              <Input
-                text={text}
-                placeholder='Enter name here'
-                onChangeText={onChangeText}
-                onSubmitEditing={onSubmitEditing}
-              />
-            </View>
-          </View>
-        </TouchableOpacity>
-      </Modal>
+      <CustomModal
+        modalVisible={modalVisible}
+        onPress={() => setModalVisible(!modalVisible)}
+      >
+        <Text style={styles.contentTitle}>Add Patient</Text>
+        <Text style={styles.contentSubTitle}>Patient Name:</Text>
+        <Input
+          text={text}
+          placeholder='Enter name here'
+          onChangeText={onChangeText}
+          onSubmitEditing={onSubmitEditing}
+        />
+      </CustomModal>
     </>
   )
 }
@@ -134,6 +108,13 @@ const styles = StyleSheet.create({
   },
   divider: {
     width: '2%',
+  },
+  contentTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  contentSubTitle: {
+    fontSize: 14,
   },
 })
 

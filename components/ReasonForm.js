@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import Input from './Input'
 
 const ReasonForm = () => {
-  const [text, setText] = useState('')
-  const onChangeText = (text) => setText(text)
-  const onSubmitEditing = () => {
-    setText('')
-  }
   return (
     <View style={styles.container}>
       <MaterialIcons
@@ -17,13 +12,7 @@ const ReasonForm = () => {
         color='#8ac6c9'
         style={styles.icon}
       />
-      <Input
-        style={styles.input}
-        text={text}
-        placeholder='Add reasons'
-        onChangeText={onChangeText}
-        onSubmitEditing={onSubmitEditing}
-      />
+      <Input style={styles.input} placeholder='Add reasons' />
     </View>
   )
 }

@@ -2,7 +2,14 @@ import React from 'react'
 import { TextInput, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-const Input = ({ text, placeholder, onChangeText, onSubmitEditing, style }) => {
+const Input = ({
+  text,
+  placeholder,
+  onChangeText,
+  onSubmitEditing,
+  style,
+  onTouchStart,
+}) => {
   return (
     <TextInput
       style={{ ...styles.input, ...style }}
@@ -11,6 +18,7 @@ const Input = ({ text, placeholder, onChangeText, onSubmitEditing, style }) => {
       placeholderTextColor='#7e8d9f'
       onChangeText={onChangeText}
       onSubmitEditing={onSubmitEditing}
+      onTouchStart={onTouchStart}
     />
   )
 }
@@ -37,14 +45,15 @@ const styles = StyleSheet.create({
 })
 
 Input.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   placeholder: PropTypes.string,
-  onChangeText: PropTypes.func.isRequired,
-  onSubmitEditing: PropTypes.func.isRequired,
+  onChangeText: PropTypes.func,
+  onSubmitEditing: PropTypes.func,
   style: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.object,
   ]),
+  onTouchStart: PropTypes.func,
 }
 
 export default Input
