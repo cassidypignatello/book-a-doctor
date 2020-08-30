@@ -11,25 +11,23 @@ const Symptom = ({
   textStyle,
   iconName,
   iconColor,
-}) => {
-  return (
-    <View style={styles.container}>
-      <Button
-        onPress={onPress}
-        style={{ ...styles.button, ...style }}
-        textStyle={{ ...styles.buttonText, ...textStyle }}
-      >
-        {children}
-      </Button>
-      <MaterialIcons
-        name={iconName}
-        size={24}
-        color={iconColor}
-        style={styles.icon}
-      />
-    </View>
-  )
-}
+}) => (
+  <View style={styles.container}>
+    <Button
+      onPress={onPress}
+      style={{ ...styles.button, ...style }}
+      textStyle={{ ...styles.buttonText, ...textStyle }}
+    >
+      {children}
+    </Button>
+    <MaterialIcons
+      name={iconName}
+      size={24}
+      color={iconColor}
+      style={styles.icon}
+    />
+  </View>
+)
 
 const styles = StyleSheet.create({
   container: {
