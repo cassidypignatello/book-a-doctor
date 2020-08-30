@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
-import { StyleSheet, SafeAreaView, Platform } from 'react-native'
+import { StyleSheet, SafeAreaView, Platform, View } from 'react-native'
 import Constants from 'expo-constants'
 import TitleBar from './components/TitleBar'
 import SegmentedControls from './components/SegmentedControls'
@@ -8,6 +8,7 @@ import EditablePatientList from './components/EditablePatientList'
 import ReasonForm from './components/ReasonForm'
 import SelectableSymptomList from './components/SelectableSymptomList'
 import SelectedSymptoms from './components/SelectedSymptoms'
+import Button from './components/Button'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -86,6 +87,11 @@ export default function App() {
         symptoms={symptoms}
         onButtonPress={onSelectSymptom}
       />
+      <View style={styles.bottomButtonContainer}>
+        <Button style={styles.button} textStyle={styles.buttonText}>
+          Next
+        </Button>
+      </View>
     </SafeAreaView>
   )
 }
@@ -102,5 +108,20 @@ const styles = StyleSheet.create({
       Platform.OS === 'android' || platformVersion < 11
         ? Constants.statusBarHeight + 20
         : 0,
+  },
+  bottomButtonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 36,
+  },
+  button: {
+    width: 380,
+    paddingVertical: 20,
+    backgroundColor: '#44d7df',
+  },
+  buttonText: {
+    color: '#fffdff',
+    textAlign: 'center',
+    fontSize: 20,
   },
 })
