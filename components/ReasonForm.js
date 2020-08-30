@@ -12,6 +12,7 @@ const ReasonForm = ({
   onDeselectSymptom,
   symptoms,
   onSelectSymptom,
+  addSymptom,
 }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const callModal = () => setModalVisible(!modalVisible)
@@ -19,7 +20,7 @@ const ReasonForm = ({
   const onChangeText = (text) => setText(text)
   const onSubmitEditing = () => {
     if (!text) return
-    // addPatient(text, id)
+    addSymptom(text)
     setText('')
     callModal()
   }
@@ -87,6 +88,7 @@ ReasonForm.propTypes = {
   onDeselectSymptom: PropTypes.func.isRequired,
   symptoms: PropTypes.array.isRequired,
   onSelectSymptom: PropTypes.func.isRequired,
+  addSymptom: PropTypes.func.isRequired,
 }
 
 export default ReasonForm
