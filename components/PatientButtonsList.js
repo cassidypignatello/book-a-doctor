@@ -92,7 +92,7 @@ const PatientButtonsList = ({ patients, addPatient }) => {
               <Text style={{ fontSize: 14 }}>Patient Name:</Text>
               <Input
                 text={text}
-                placeholder={'Enter name here'}
+                placeholder='Enter name here'
                 onChangeText={onChangeText}
                 onSubmitEditing={onSubmitEditing}
               />

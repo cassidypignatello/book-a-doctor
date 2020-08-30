@@ -5,6 +5,7 @@ import Constants from 'expo-constants'
 import TitleBar from './components/TitleBar'
 import SegmentedControls from './components/SegmentedControls'
 import EditablePatientList from './components/EditablePatientList'
+import ReasonForm from './components/ReasonForm'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -49,6 +50,7 @@ export default function App() {
         paddingVertical={10}
       />
       <EditablePatientList patients={patients} addPatient={onAddPatient} />
+      <ReasonForm />
     </SafeAreaView>
   )
 }

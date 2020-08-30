@@ -2,10 +2,10 @@ import React from 'react'
 import { TextInput, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-const Input = ({ text, placeholder, onChangeText, onSubmitEditing }) => {
+const Input = ({ text, placeholder, onChangeText, onSubmitEditing, style }) => {
   return (
     <TextInput
-      style={styles.input}
+      style={{ ...styles.input, ...style }}
       value={text}
       placeholder={placeholder}
       placeholderTextColor='#7e8d9f'
@@ -41,6 +41,10 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   onChangeText: PropTypes.func.isRequired,
   onSubmitEditing: PropTypes.func.isRequired,
+  style: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.object,
+  ]),
 }
 
 export default Input
