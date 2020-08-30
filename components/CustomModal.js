@@ -1,24 +1,33 @@
 import React from 'react'
-import { Modal, TouchableOpacity, View, StyleSheet, Text } from 'react-native'
+import {
+  Modal,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+} from 'react-native'
 import PropTypes from 'prop-types'
 
 const CustomModal = ({ modalVisible, children, onPress, title, subtitle }) => {
   return (
-    <Modal animationType='slide' transparent={true} visible={modalVisible}>
-      <TouchableOpacity
-        activeOpacity={1}
-        style={styles.backdrop}
-        onPress={onPress}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContentContainer}>
-            <Text style={styles.contentTitle}>{title}</Text>
-            <Text style={styles.contentSubTitle}>{subtitle}</Text>
-            {children}
+    <KeyboardAvoidingView>
+      <Modal animationType='slide' transparent={true} visible={modalVisible}>
+        <TouchableOpacity
+          activeOpacity={1}
+          style={styles.backdrop}
+          onPress={onPress}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContentContainer}>
+              <Text style={styles.contentTitle}>{title}</Text>
+              <Text style={styles.contentSubTitle}>{subtitle}</Text>
+              {children}
+            </View>
           </View>
-        </View>
-      </TouchableOpacity>
-    </Modal>
+        </TouchableOpacity>
+      </Modal>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -29,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    flex: 0.5,
+    flex: 0.7,
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

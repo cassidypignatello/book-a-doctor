@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, View, Text } from 'react-native'
+import { FlatList, StyleSheet, View, Keyboa } from 'react-native'
 import PropTypes from 'prop-types'
 import { MaterialIcons } from '@expo/vector-icons'
 import Button from './Button'

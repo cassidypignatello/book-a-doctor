@@ -35,13 +35,13 @@ export default function App() {
   ])
 
   const [symptoms, setSymptoms] = useState([
-    'Symptom 1',
-    'Symptom 2',
-    'Symptom 3',
-    'Symptom 4',
-    'Symptom 5',
-    'Symptom 6',
-    'Symptom 7',
+    'Headache',
+    'Fever',
+    'Indigestion',
+    'Heartburn',
+    'Insomnia',
+    'Anxiety',
+    'Depression',
   ])
   const [selectedSymptoms, setSelectedSymptoms] = useState([])
   const onSelectSymptom = (item, index) => {

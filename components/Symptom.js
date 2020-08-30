@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { MaterialIcons } from '@expo/vector-icons'
 import Button from './Button'
 
 const Symptom = ({
@@ -17,15 +16,11 @@ const Symptom = ({
       onPress={onPress}
       style={{ ...styles.button, ...style }}
       textStyle={{ ...styles.buttonText, ...textStyle }}
+      iconName={iconName}
+      iconColor={iconColor}
     >
       {children}
     </Button>
-    <MaterialIcons
-      name={iconName}
-      size={24}
-      color={iconColor}
-      style={styles.icon}
-    />
   </View>
 )
 
@@ -36,17 +31,14 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 16,
-    paddingRight: '20%',
+    alignSelf: 'flex-start',
     marginTop: '10%',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   buttonText: {
     color: '#8ac6c9',
     fontWeight: '400',
-  },
-  icon: {
-    position: 'absolute',
-    top: '40%',
-    left: '56%',
   },
 })
 
