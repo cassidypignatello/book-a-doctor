@@ -9,6 +9,7 @@ import ReasonForm from './components/ReasonForm'
 import SelectableSymptomList from './components/SelectableSymptomList'
 import SelectedSymptoms from './components/SelectedSymptoms'
 import Button from './components/Button'
+import PushToBottom from './components/PushToBottom'
 
 export default function App() {
   const [tabIndex, setTabIndex] = useState(0)
@@ -88,11 +89,11 @@ export default function App() {
         symptoms={symptoms}
         onButtonPress={onSelectSymptom}
       />
-      <View style={styles.bottomButtonContainer}>
+      <PushToBottom>
         <Button style={styles.button} textStyle={styles.buttonText}>
           Next
         </Button>
-      </View>
+      </PushToBottom>
     </SafeAreaView>
   )
 }
@@ -109,11 +110,6 @@ const styles = StyleSheet.create({
       Platform.OS === 'android' || platformVersion < 11
         ? Constants.statusBarHeight + 20
         : 0,
-  },
-  bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 20,
   },
   button: {
     width: 380,

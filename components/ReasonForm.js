@@ -7,6 +7,7 @@ import CustomModal from './CustomModal'
 import SelectedSymptoms from './SelectedSymptoms'
 import SelectableSymptomList from './SelectableSymptomList'
 import Button from './Button'
+import PushToBottom from './PushToBottom'
 
 const ReasonForm = ({
   selectedSymptoms,
@@ -66,7 +67,7 @@ const ReasonForm = ({
           symptoms={symptoms}
           onButtonPress={selectSymptom}
         />
-        <View style={styles.bottomButtonContainer}>
+        <PushToBottom style={styles.bottomButtonContainer}>
           <Button
             style={styles.button}
             textStyle={styles.buttonText}
@@ -74,7 +75,7 @@ const ReasonForm = ({
           >
             Done
           </Button>
-        </View>
+        </PushToBottom>
       </CustomModal>
     </>
   )
@@ -98,9 +99,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 36,
+    marginBottom: 26,
   },
   button: {
     width: '95%',
