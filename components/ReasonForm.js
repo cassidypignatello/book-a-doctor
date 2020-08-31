@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import { MaterialIcons } from '@expo/vector-icons'
 import Input from './Input'
@@ -53,20 +53,22 @@ const ReasonForm = ({
         title='Symptoms & Conditions'
         subtitle='Please specify your symptoms:'
       >
-        <Input
-          text={text}
-          placeholder='e.g. Cough'
-          onChangeText={onChangeText}
-          onSubmitEditing={onSubmitEditing}
-        />
-        <SelectedSymptoms
-          symptoms={selectedSymptoms}
-          onButtonPress={deselectSymptom}
-        />
-        <SelectableSymptomList
-          symptoms={symptoms}
-          onButtonPress={selectSymptom}
-        />
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          <Input
+            text={text}
+            placeholder='e.g. Cough'
+            onChangeText={onChangeText}
+            onSubmitEditing={onSubmitEditing}
+          />
+          <SelectedSymptoms
+            symptoms={selectedSymptoms}
+            onButtonPress={deselectSymptom}
+          />
+          <SelectableSymptomList
+            symptoms={symptoms}
+            onButtonPress={selectSymptom}
+          />
+        </ScrollView>
         <PushToBottom style={styles.bottomButtonContainer}>
           <Button
             style={styles.button}
@@ -98,11 +100,15 @@ const styles = StyleSheet.create({
     marginTop: '8%',
     textAlign: 'center',
   },
+  contentContainer: {
+    flexGrow: 1,
+    alignItems: 'center',
+  },
   bottomButtonContainer: {
     marginBottom: 26,
   },
   button: {
-    width: '95%',
+    width: 380,
     marginTop: '5%',
     paddingVertical: 20,
   },

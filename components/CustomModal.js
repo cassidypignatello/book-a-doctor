@@ -38,22 +38,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    flex: 0.7,
+    flex: 0.8,
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    alignItems: 'center',
   },
   modalContentContainer: {
     flex: 1,
     marginTop: '5%',
-    marginLeft: '5%',
   },
   contentTitle: {
     fontWeight: 'bold',
     fontSize: 16,
+    marginLeft: '5%',
   },
   contentSubTitle: {
     fontSize: 14,
+    marginLeft: '5%',
   },
 })
 

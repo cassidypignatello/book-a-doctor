@@ -8,9 +8,9 @@ const PushToBottom = ({ style, children }) => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 20,
+    alignItems: 'center',
   },
 })
 
