@@ -85,10 +85,12 @@ export default function App() {
         <SelectedSymptoms
           symptoms={selectedSymptoms}
           onButtonPress={onDeselectSymptom}
+          title='Selected symptoms and reasons:'
         />
         <SelectableSymptomList
           symptoms={symptoms}
           onButtonPress={onSelectSymptom}
+          title='Choose your symptoms and reasons:'
         />
       </ScrollView>
       <PushToBottom>

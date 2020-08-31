@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import SectionTitle from './SectionTitle'
 import Symptom from './Symptom'
 
-const SelectableSymptomList = ({ symptoms, onButtonPress }) => (
+const SelectableSymptomList = ({ symptoms, onButtonPress, title }) => (
   <View style={styles.container}>
-    <SectionTitle title='Choose your symptoms and reasons:' />
+    <SectionTitle title={title} />
     <View style={styles.buttonsContainer}>
       {symptoms.map((item, index) => (
         <Symptom
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 SelectableSymptomList.propTypes = {
   symptoms: PropTypes.array.isRequired,
   onButtonPress: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default SelectableSymptomList

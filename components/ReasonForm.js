@@ -63,10 +63,12 @@ const ReasonForm = ({
           <SelectedSymptoms
             symptoms={selectedSymptoms}
             onButtonPress={deselectSymptom}
+            title='Selected symptoms:'
           />
           <SelectableSymptomList
             symptoms={symptoms}
             onButtonPress={selectSymptom}
+            title='Choose your symptoms:'
           />
         </ScrollView>
         <PushToBottom style={styles.bottomButtonContainer}>
